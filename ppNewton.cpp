@@ -14,7 +14,7 @@
  		x1=x0 - f(x0)/Df(x0);
  		err=fabs(x1-x0);
  		x0=x1;
- 		if(err<=e) break;
+ 		if(err<e) break;
 	 }
 	printf("ket qua la:%f",x1); 
  } 
