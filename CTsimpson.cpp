@@ -7,7 +7,7 @@ float fx(float x)
 
 int main()
 {
-    int n;
+    int n; //n la so chan
     float a, b;
     printf("Nhap a, b, n: ");
     scanf("%f%f%d", &a, &b, &n);
@@ -15,8 +15,7 @@ int main()
     for(int i = 1; i < n; i++){
         x = a + i*h;
         S += 2 * fx(x);
-        if(i%2!=0) S+=4*f(x);
- 		else S+=2*f(x);
+        if(i%2!=0) S+=2*f(x);
     }
     S = (h/3)*S;
     printf("Ket qua = %f", S);
