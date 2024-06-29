@@ -1,32 +1,26 @@
-#include<iostream>
-using namespace std;
-//x²-m=0 find x
-float fx(float x, float m){
-    return x*x-m;
-}
+/**
+   giai phuong trinh:
+        x-2^-x=0 for (0<=x<=1), e=10^-5      
+**/ 
+#include<stdio.h>
+#include<math.h>
 
-float find_sqrt_m(float m);
-int main()
-{
-    float m;
-    cout << "Nhap so muon tim can bac 2: ";
-    cin >> m;
-    cout << "Ket qua : " << find_sqrt_m(m);
-    return 0;
-}
-
-float find_sqrt_m(float m){   
-    float a, b, e, x0;
-    a = 1;
-    b = 2;
-    e = 0.000001;
-    while((b-a)>=e){
-        x0=(a+b)/2;
-        if(fx(a, m)*fx(x0, m) > 0){
-            a = x0;
-        }else{
-            b = x0;
-        }
-    }
-    return x0;
-}
+ float f(float x){
+ 	return x- pow(2,-x); 
+ }
+ float Giaipt(float a, float b, float e){
+ 	float x;
+	while(b-a>=e){
+ 	    x=(a+b)/2;
+ 		if(f(a)*f(x)>0){
+ 			a=x;
+		 }else{
+		 	b=x;
+		 }
+	 }
+	return x; 
+ }
+ int main(){
+ 	float a=0,b=1,e=0.000001;
+ 	printf("Ket qua la:%f",Giaipt(a,b,e));
+ }
