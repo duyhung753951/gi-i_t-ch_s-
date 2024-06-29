@@ -1,29 +1,36 @@
 #include<stdio.h>
-#include<string.h>
-#include<math.h>
-
-int main()
-{
-    int n, i, k;
-    float xn;
-    printf("Nhap xn: ");
-    scanf("%f", &xn);
-    printf("Nhap n: ");
-    scanf("%d",&n);
-    float a[n], b[n];
-    long long D, P;
-    printf("Nhap bang: ");
-    for(i = 0; i <= n; i++){
-        scanf("%f%f", &a[i], &b[i]);
-    }
-    for(k = 0; k<=n; k++){
-        D=1;
-        for(i = 1; i<=n; i++){
-            if(i != k){
-                D = D * ((xn - a[i])/(a[k] - a[i]));
-            }
-        }
-        P = P + b[k] * D;
-    }
-    printf("P = %llf", P);
-}
+ void Nhapmang(int n, float a[]){
+ 	int i;
+ 	for(i=0;i<n;i++){
+ 		scanf("%f",&a[i]);
+	 }
+ }
+ float LL(int n, float x0, float x[], float y[]){
+ 	int i,j;
+ 	float L=0;
+ 	for(i=0;i<n;i++){
+ 		float t=y[i];
+		 for(j=0;j<n;j++){
+		 	if(j!=i){
+		 		t*=(x0-x[j])/(x[i]-x[j]);
+			 }
+		 }
+		 L+=t; 
+	 }
+	 return L;
+ }
+ int main(){
+ 	int n;
+ 	printf("So moc noi suy la:");
+ 	scanf("%d",&n);
+ 	float x[n],y[n];
+ 	printf("Nhap vao cac moc gia tri cua x:");
+ 	Nhapmang(n,x);
+ 	printf("Nhap vao cac moc gia tri cua y:");
+ 	Nhapmang(n,y);
+ 	float x0;
+ 	printf("Nhap gia tri can noi suy:");
+ 	scanf("%f",&x0);
+ 	float total = LL(n,x0,x,y);
+ 	printf("ket qua la:%f",total);
+ }
