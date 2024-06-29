@@ -10,13 +10,11 @@ int main()
 {
     //a, b la khoang phan ly de` bai` cho
     //m la min cua f'(x)
-    float a, b, x1, x0, saiso, err, m;
+    float a, b, x1, x0, saiso, err;
     cout << "Nhap a = ";
     cin >> a;
     cout << "Nhap b = ";
     cin >> b;
-    cout << "Nhap m = ";
-    cin >> m;
     int i = 1;
     do{
        x1 = (a*f(b)-b*f(a))/(f(b)-f(a));
