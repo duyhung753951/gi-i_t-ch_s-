@@ -26,7 +26,7 @@ int main()
        cout << "Vong lap thu " << i << ": x1 = " << x1 << endl;
        x0 = x1;
        i++;
-    }while(err >= saiso);
+    }while(saiso >= err);
     cout << "Nghiem gan dung la : " << x1;
     return 0;
 }
