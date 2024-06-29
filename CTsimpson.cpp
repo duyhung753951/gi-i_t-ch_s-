@@ -5,8 +5,6 @@ float fx(float x)
     return 1/(1+x);
 }
 
-// simpson
-
 int main()
 {
     int n;
@@ -17,7 +15,9 @@ int main()
     for(int i = 1; i < n; i++){
         x = a + i*h;
         S += 2 * fx(x);
+        if(i%2!=0) S+=4*f(x);
+ 		else S+=2*f(x);
     }
-    S = (h/2)*S;
+    S = (h/3)*S;
     printf("Ket qua = %f", S);
 }
