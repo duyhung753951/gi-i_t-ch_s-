@@ -1,34 +1,20 @@
-#include<iostream>
+#include<stdio.h>
 #include<math.h>
-using namespace std;
-
-float f(float x){
-    return x*x*x - 3*x +1;
-}
-
-float df(float x){
-    return 3*x*x -3;
-}
-
-int main()
-{
-    //x0 = 0, sai so = 0.00001
-    //m la min cua f'(x)
-    float f0, g0, x1, x0, saiso, err, m;
-    cout << "Nhap x0 = ";
-    cin >> x0;
-    cout << "Nhap sai so = ";
-    cin >> saiso;
-    int i = 1;
-    do{
-        f0=f(x0);
-        g0=df(x0);
-        x1 = x0 - f0/g0;
-        err = abs(f(x1))/m;
-        cout << "Vong lap thu " << i << ": x1 = " << x1 << endl;
-        x0 = x1;
-        i++;
-    }while(err >= saiso);
-    cout << "Nghiem gan dung la : " << x1;
-    return 0;
-}
+ float f(float x){
+ 	return exp(x)+pow(2,-x)+2*cos(x)-6;//f(x)
+ }
+ float Df(float x){
+ 	return exp(x)-pow(2,-x)*log(2)-2*sin(x);//f'(x)
+ }
+ int main(){
+ 	float x0,x1,e,err;
+ 	printf("Nhap vao x0 va e:");
+ 	scanf("%f%f",&x0,&e);
+ 	while(1){
+ 		x1=x0 - f(x0)/Df(x0);
+ 		err=fabs(x1-x0);
+ 		x0=x1;
+ 		if(err<=e) break;
+	 }
+	printf("ket qua la:%f",x1); 
+ } 
