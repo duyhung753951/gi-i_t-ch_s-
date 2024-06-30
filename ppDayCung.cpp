@@ -9,7 +9,6 @@ float f(float x){
 int main()
 {
     //a, b la khoang phan ly de` bai` cho
-    //m la min cua f'(x)
     float a, b, x1, x0, saiso, err;
     cout << "Nhap a = ";
     cin >> a;
